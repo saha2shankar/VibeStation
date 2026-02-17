@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VibeStation</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="utility.css" />
+  </head>
+  <body>
+    <div class="container flex bg-black">
+      <aside class="left">
+        <div class="close">
+          <img src="public/close.svg" class="invert" alt="close sidebar" />
+        </div>
+        <div class="home bg-gray rounded p-1">
+          <div class="logo">
+            <img src="public/logo.svg" alt="VibeStation Logo" class="invert" />
+            <span class="brand-title">VibeStation</span>
+          </div>
+          <ul>
+            <li class="nav-item active">
+              <img src="public/home.svg" class="invert" width="20" alt="home" />
+              <span>Home</span>
+            </li>
+            <li class="nav-item">
+              <img
+                src="public/search.svg"
+                class="invert"
+                width="20"
+                alt="search"
+              />
+              <span>Search</span>
+            </li>
+          </ul>
+        </div>
+        <section class="library bg-gray rounded p-1 songList">
+          <div class="library-header">
+            <h2 class="m-2">Your Library</h2>
+            <span class="library-pill">Playlist</span>
+          </div>
+          <div class="library-search">
+            <input
+              type="text"
+              id="songSearch"
+              placeholder="Search in playlist"
+              autocomplete="off"
+            />
+          </div>
+          <ul class="library-list"></ul>
+        </section>
+        <footer class="footer p-1 m-1">
+          <div>
+            <a href=""><span>Legal</span></a>
+          </div>
+          <div>
+            <a href=""><span>Privacy Center</span></a>
+          </div>
+          <div>
+            <a href=""><span>Cookies</span></a>
+          </div>
+          <div>
+            <a href=""><span>About Ads</span></a>
+          </div>
+          <div>
+            <a href=""><span>Accessibility</span></a>
+          </div>
+        </footer>
+      </aside>
+      <main class="right bg-gray rounded m-2">
+        <header class="header">
+          <div class="nav">
+            <img
+              src="public/hamburger.svg"
+              class="invert hamburger"
+              alt="open sidebar"
+            />
+            <img src="public/left.svg" class="invert small-size" alt="back" />
+            <img
+              src="public/right.svg"
+              class="invert small-size"
+              alt="forward"
+            />
+          </div>
+          <div class="header-right">
+            <div class="header-search">
+              <input
+                type="text"
+                id="globalSearch"
+                placeholder="Search anything"
+                autocomplete="off"
+              />
+            </div>
+            <div class="button">
+              <button class="signup-btn">Sign Up</button>
+              <button class="login-btn">Login</button>
+            </div>
+          </div>
+        </header>
+        <section class="vibePlaylists">
+          <div class="vibePlaylists-header">
+            <div>
+              <h1 class="heading">VibeStation Mixes</h1>
+              <p class="heading-subtitle">Curated sounds for every mood</p>
+            </div>
+          </div>
+          <div class="cardContainer" id="playlistContainer"></div>
+        </section>
+        <div class="loading-overlay" id="loadingOverlay">
+          <div class="spinner"></div>
+        </div>
+        <section class="playbar">
+          <div class="playbar-left">
+            <div class="playbar-cover">
+              <div class="cover-art" id="coverArt">
+                <img
+                  src="public/music.svg"
+                  class="invert"
+                  width="30px"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="playbar-meta">
+              <div class="song-title-row">
+                <div class="song-title" id="songTitle">Nothing playing</div>
+                <button
+                  class="icon-btn like-btn"
+                  id="likeBtn"
+                  aria-label="Like track"
+                >
+                  ♡
+                </button>
+              </div>
+              <div class="song-artist-row">
+                <div class="song-artist" id="songArtist">
+                  Select a track to start
+                </div>
+                <span class="song-index" id="trackIndex"></span>
+              </div>
+            </div>
+          </div>
+          <div class="playbar-center">
+            <div class="songsbuttons">
+              <button class="icon-btn" id="shuffleBtn" aria-label="Shuffle">
+                ⤨
+              </button>
+              <button class="icon-btn" id="previousBtn" aria-label="Previous">
+                ⏮
+              </button>
+              <button
+                class="icon-btn primary"
+                id="playPauseBtn"
+                aria-label="Play"
+              >
+                ▶
+              </button>
+              <button class="icon-btn" id="nextBtn" aria-label="Next">
+                ⏭
+              </button>
+              <button class="icon-btn" id="repeatBtn" aria-label="Repeat">
+                🔁
+              </button>
+            </div>
+            <div class="playbar-progress">
+              <span class="song-time" id="currentTime">0:00</span>
+              <div class="seekbar" id="seekbar">
+                <div class="seekbar-fill" id="seekbarFill"></div>
+                <div class="circle" id="seekHandle"></div>
+              </div>
+              <span class="song-time" id="totalTime">0:00</span>
+            </div>
+          </div>
+          <div class="playbar-right">
+            <canvas id="audioVisualizer"></canvas>
+            <div class="playbar-volume">
+              <button class="icon-btn" id="muteBtn" aria-label="Mute">
+                🔊
+              </button>
+              <input
+                type="range"
+                id="volumeSlider"
+                min="0"
+                max="1"
+                step="0.01"
+              />
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div class="toast" id="toast"></div>
+    <script src="main.js"></script>
+  </body>
+</html>
