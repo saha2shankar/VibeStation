@@ -5,6 +5,8 @@ VibeStation turns a simple list of `.mp3` files into a fully‑featured, playlis
 
 ---
 
+<img width="1915" height="903" alt="image" src="https://github.com/user-attachments/assets/df6dff3e-446a-43f2-a21c-4ac90909bbc1" />
+
 ## Features
 
 **Core playback**
